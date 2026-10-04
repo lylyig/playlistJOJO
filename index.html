@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Pour tes 18 ans ❤️</title>
+
 
     <style>
 
@@ -12,8 +16,11 @@
             box-sizing: border-box;
         }
 
+
         body {
+
             margin: 0;
+
             min-height: 100vh;
 
             font-family: Georgia, "Times New Roman", serif;
@@ -32,7 +39,9 @@
                 #555957;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             padding: 24px;
@@ -41,10 +50,12 @@
         }
 
 
-        /* ───────── CARTE PRINCIPALE ───────── */
+        /* ───────── CARTE ───────── */
 
         .card {
+
             width: 100%;
+
             max-width: 520px;
 
             background: #e9e6dd;
@@ -82,8 +93,6 @@
         }
 
 
-        /* Décorations discrètes */
-
         .card::before {
 
             content: "";
@@ -91,6 +100,7 @@
             position: absolute;
 
             width: 190px;
+
             height: 190px;
 
             background: rgba(83, 110, 85, 0.09);
@@ -98,6 +108,7 @@
             border-radius: 50%;
 
             top: -100px;
+
             right: -75px;
         }
 
@@ -109,6 +120,7 @@
             position: absolute;
 
             width: 150px;
+
             height: 150px;
 
             background: rgba(83, 110, 85, 0.07);
@@ -116,11 +128,12 @@
             border-radius: 50%;
 
             bottom: -85px;
+
             left: -60px;
         }
 
 
-        /* ───────── TEXTE ───────── */
+        /* ───────── TEXTES ───────── */
 
         .intro {
 
@@ -161,6 +174,7 @@
         .subtitle {
 
             margin-top: 16px;
+
             margin-bottom: 38px;
 
             font-size: 18px;
@@ -171,7 +185,7 @@
         }
 
 
-        /* ───────── LECTEUR ───────── */
+        /* ───────── PLAYER ───────── */
 
         .player {
 
@@ -214,11 +228,12 @@
         }
 
 
-        /* ───────── BOUTON PLAY ───────── */
+        /* ───────── PLAY ───────── */
 
         .play-button {
 
             width: 68px;
+
             height: 68px;
 
             border: none;
@@ -236,6 +251,7 @@
             display: flex;
 
             justify-content: center;
+
             align-items: center;
 
             margin: 0 auto 24px;
@@ -269,29 +285,81 @@
 
             width: 100%;
 
-            height: 5px;
+            display: flex;
+
+            align-items: center;
+        }
+
+
+        #progressSlider {
+
+            width: 100%;
+
+            height: 6px;
+
+            appearance: none;
+
+            -webkit-appearance: none;
 
             background: #c8c5bc;
 
             border-radius: 10px;
 
-            cursor: pointer;
+            outline: none;
 
-            overflow: hidden;
+            cursor: pointer;
         }
 
 
-        .progress {
+        /* Curseur sur Mac / Chrome / Safari */
 
-            height: 100%;
+        #progressSlider::-webkit-slider-thumb {
 
-            width: 0%;
+            appearance: none;
+
+            -webkit-appearance: none;
+
+            width: 15px;
+
+            height: 15px;
+
+            border-radius: 50%;
 
             background: #58745c;
 
-            border-radius: 10px;
+            border: 2px solid #dedbd2;
 
-            transition: width 0.1s linear;
+            box-shadow:
+                0 2px 5px rgba(0, 0, 0, 0.20);
+
+            cursor: grab;
+        }
+
+
+        #progressSlider::-webkit-slider-thumb:active {
+
+            cursor: grabbing;
+        }
+
+
+        /* Curseur Firefox */
+
+        #progressSlider::-moz-range-thumb {
+
+            width: 15px;
+
+            height: 15px;
+
+            border-radius: 50%;
+
+            background: #58745c;
+
+            border: 2px solid #dedbd2;
+
+            box-shadow:
+                0 2px 5px rgba(0, 0, 0, 0.20);
+
+            cursor: grab;
         }
 
 
@@ -313,7 +381,7 @@
         }
 
 
-        /* ───────── BOUTONS PREVIOUS / NEXT ───────── */
+        /* ───────── BOUTONS ───────── */
 
         .controls {
 
@@ -330,6 +398,7 @@
         .control-button {
 
             width: 40px;
+
             height: 40px;
 
             border: none;
@@ -360,7 +429,7 @@
         }
 
 
-        /* ───────── TEXTE DU BAS ───────── */
+        /* ───────── BAS ───────── */
 
         .bottom-text {
 
@@ -428,6 +497,7 @@
         }
 
     </style>
+
 </head>
 
 
@@ -436,8 +506,6 @@
 
     <div class="card">
 
-
-        <!-- TEXTE D'INTRODUCTION -->
 
         <div class="intro">
             OUUUUUH t’es gâté...
@@ -457,8 +525,6 @@
 
         </div>
 
-
-        <!-- LECTEUR -->
 
         <div class="player">
 
@@ -482,15 +548,19 @@
             </button>
 
 
-            <div
-                class="progress-container"
-                id="progressContainer"
-            >
+            <!-- VRAI CURSEUR -->
 
-                <div
-                    class="progress"
-                    id="progress"
-                ></div>
+            <div class="progress-container">
+
+                <input
+                    type="range"
+                    id="progressSlider"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="0.01"
+                    aria-label="Position dans la musique"
+                >
 
             </div>
 
@@ -543,15 +613,13 @@
     </div>
 
 
-    <!-- AUDIO -->
-
     <audio id="audio"></audio>
 
 
     <script>
 
 
-        /* ───────── TES 8 FICHIERS AUDIO ───────── */
+        /* ───────── TES 8 PARTIES ───────── */
 
         const tracks = [
 
@@ -585,12 +653,8 @@
             document.getElementById("playButton");
 
 
-        const progress =
-            document.getElementById("progress");
-
-
-        const progressContainer =
-            document.getElementById("progressContainer");
+        const progressSlider =
+            document.getElementById("progressSlider");
 
 
         const currentTime =
@@ -605,7 +669,7 @@
             document.getElementById("trackNumber");
 
 
-        /* ───────── CHARGER UNE PISTE ───────── */
+        /* ───────── CHARGER LA PISTE ───────── */
 
         function loadTrack() {
 
@@ -614,6 +678,8 @@
             trackNumber.textContent =
                 String(currentTrack + 1).padStart(2, "0")
                 + " / 08";
+
+            progressSlider.value = 0;
 
             audio.load();
 
@@ -641,7 +707,7 @@
         });
 
 
-        /* ───────── PROGRESSION ───────── */
+        /* ───────── MISE À JOUR DU CURSEUR ───────── */
 
         audio.addEventListener("timeupdate", () => {
 
@@ -652,8 +718,28 @@
                 (audio.currentTime / audio.duration) * 100;
 
 
-            progress.style.width =
-                percent + "%";
+            progressSlider.value = percent;
+
+
+            currentTime.textContent =
+                formatTime(audio.currentTime);
+
+        });
+
+
+        /* ───────── DÉPLACER LE CURSEUR ───────── */
+
+        progressSlider.addEventListener("input", () => {
+
+            if (!audio.duration) return;
+
+
+            const position =
+                progressSlider.value / 100;
+
+
+            audio.currentTime =
+                position * audio.duration;
 
 
             currentTime.textContent =
@@ -672,7 +758,7 @@
         });
 
 
-        /* ───────── FIN D'UNE PISTE ───────── */
+        /* ───────── FIN DE LA PISTE ───────── */
 
         audio.addEventListener("ended", () => {
 
@@ -698,31 +784,6 @@
             }
 
         });
-
-
-        /* ───────── CLIC SUR LA BARRE ───────── */
-
-        progressContainer.addEventListener(
-            "click",
-            (event) => {
-
-                if (!audio.duration) return;
-
-
-                const width =
-                    progressContainer.clientWidth;
-
-
-                const clickPosition =
-                    event.offsetX;
-
-
-                audio.currentTime =
-                    (clickPosition / width)
-                    * audio.duration;
-
-            }
-        );
 
 
         /* ───────── PISTE PRÉCÉDENTE ───────── */
@@ -806,9 +867,9 @@
 
         loadTrack();
 
-
     </script>
 
 
 </body>
+
 </html>
