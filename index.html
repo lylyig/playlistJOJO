@@ -3,51 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pour toi 💗</title>
+
+    <title>Pour tes 18 ans ❤️</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: #fce4ec;
-            padding: 50px 20px;
+        * {
+            box-sizing: border-box;
         }
 
-        .box {
-            max-width: 500px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 25px;
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Georgia, "Times New Roman", serif;
+
+            background:
+                radial-gradient(circle at 20% 20%, rgba(100, 125, 105, 0.18), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(100, 125, 105, 0.14), transparent 30%),
+                #686b68;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+            color: #30332f;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 520px;
+
+            background: #f1ede3;
+
+            padding: 55px 45px;
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.22),
+                0 4px 15px rgba(0, 0, 0, 0.08);
+
+            text-align: center;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Petite décoration verte */
+
+        .card::before {
+            content: "";
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            background: rgba(83, 110, 85, 0.10);
+
+            border-radius: 50%;
+
+            top: -90px;
+            right: -70px;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+
+            width: 130px;
+            height: 130px;
+
+            background: rgba(83, 110, 85, 0.08);
+
+            border-radius: 50%;
+
+            bottom: -70px;
+            left: -50px;
+        }
+
+        .small-title {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+
+            color: #607361;
+
+            margin-bottom: 18px;
         }
 
         h1 {
-            color: #d81b60;
+            font-size: 38px;
+            font-weight: normal;
+
+            margin: 0;
+
+            color: #30332f;
         }
 
-        p {
-            color: #555;
+        .subtitle {
+            font-size: 18px;
+            line-height: 1.6;
+
+            color: #656861;
+
+            margin-top: 15px;
+            margin-bottom: 40px;
         }
 
-        audio {
+        .heart {
+            color: #607b62;
+        }
+
+        /* Lecteur */
+
+        .player {
+            background: #e7e1d4;
+
+            border-radius: 22px;
+
+            padding: 28px 25px;
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+
+        .track-number {
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+            letter-spacing: 2px;
+
+            color: #738273;
+
+            margin-bottom: 12px;
+        }
+
+        .track-title {
+            font-size: 19px;
+
+            margin-bottom: 25px;
+
+            color: #343733;
+        }
+
+        .play-button {
+            width: 68px;
+            height: 68px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: #58745c;
+            color: white;
+
+            font-size: 24px;
+
+            cursor: pointer;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0 auto 25px;
+
+            box-shadow:
+                0 8px 18px rgba(65, 90, 68, 0.28);
+
+            transition: transform 0.2s ease,
+                        background 0.2s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.06);
+            background: #4d6951;
+        }
+
+        .progress-container {
             width: 100%;
-            margin-top: 20px;
+
+            height: 6px;
+
+            background: #cfc9bd;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+
+            width: 0%;
+
+            background: #58745c;
+
+            border-radius: 10px;
+        }
+
+        .time {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 8px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            color: #777b74;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+
+            margin-top: 22px;
+        }
+
+        .control-button {
+            width: 42px;
+            height: 42px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #d8d2c5;
+
+            color: #526654;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            transition: transform 0.2s ease;
+        }
+
+        .control-button:hover {
+            transform: scale(1.08);
+        }
+
+        .bottom-text {
+            margin-top: 30px;
+
+            font-size: 14px;
+
+            color: #7b7d77;
+
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 16px;
+            }
+
+            .card {
+                padding: 42px 22px;
+                border-radius: 24px;
+            }
+
+            h1 {
+                font-size: 31px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .player {
+                padding: 25px 18px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="box">
-        <h1>🎧 Pour toi</h1>
-        <p>Une petite playlist rien que pour toi 💗</p>
+    <div class="card">
 
-        <audio id="player" controls>
-            <source src="plA-01.mp3" type="audio/mpeg">
-        </audio>
+        <div class="small-title">
+            Une petite attention
+        </div>
+
+        <h1>
+            Pour tes 18 ans <span class="heart">♥</span>
+        </h1>
+
+        <div class="subtitle">
+            une playlist spécialement créée<br>
+            pour notre Jojo
+        </div>
+
+
+        <div class="player">
+
+            <div class="track-number" id="trackNumber">
+                01 / 08
+            </div>
+
+            <div class="track-title" id="trackTitle">
+                Playlist pour Jojo
+            </div>
+
+            <button class="play-button" id="playButton">
+                ▶
+            </button>
+
+            <div class="progress-container" id="progressContainer">
+                <div class="progress" id="progress"></div>
+            </div>
+
+            <div class="time">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="controls">
+
+                <button class="control-button" id="previous">
+                    ‹
+                </button>
+
+                <button class="control-button" id="next">
+                    ›
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="bottom-text">
+            Profite bien de ta playlist 🌿
+        </div>
+
     </div>
 
+
+    <audio id="audio"></audio>
+
+
     <script>
+
         const tracks = [
             "plA-01.mp3",
             "plB-01.mp3",
@@ -59,17 +360,169 @@
             "plB-04.mp3"
         ];
 
-        let current = 0;
-        const player = document.getElementById("player");
 
-        player.addEventListener("ended", () => {
-            current++;
+        let currentTrack = 0;
 
-            if (current < tracks.length) {
-                player.src = tracks[current];
-                player.play();
+        const audio = document.getElementById("audio");
+
+        const playButton = document.getElementById("playButton");
+
+        const progress = document.getElementById("progress");
+
+        const progressContainer =
+            document.getElementById("progressContainer");
+
+        const currentTime =
+            document.getElementById("currentTime");
+
+        const duration =
+            document.getElementById("duration");
+
+        const trackNumber =
+            document.getElementById("trackNumber");
+
+
+        function loadTrack() {
+
+            audio.src = tracks[currentTrack];
+
+            trackNumber.textContent =
+                String(currentTrack + 1).padStart(2, "0")
+                + " / 08";
+
+            audio.load();
+        }
+
+
+        function togglePlay() {
+
+            if (audio.paused) {
+
+                audio.play();
+
+                playButton.textContent = "❚❚";
+
+            } else {
+
+                audio.pause();
+
+                playButton.textContent = "▶";
+            }
+        }
+
+
+        playButton.addEventListener("click", togglePlay);
+
+
+        audio.addEventListener("timeupdate", () => {
+
+            if (!audio.duration) return;
+
+            const percent =
+                (audio.currentTime / audio.duration) * 100;
+
+            progress.style.width = percent + "%";
+
+            currentTime.textContent =
+                formatTime(audio.currentTime);
+        });
+
+
+        audio.addEventListener("loadedmetadata", () => {
+
+            duration.textContent =
+                formatTime(audio.duration);
+        });
+
+
+        audio.addEventListener("ended", () => {
+
+            currentTrack++;
+
+            if (currentTrack < tracks.length) {
+
+                loadTrack();
+
+                audio.play();
+
+            } else {
+
+                currentTrack = 0;
+
+                loadTrack();
+
+                playButton.textContent = "▶";
             }
         });
+
+
+        progressContainer.addEventListener("click", (event) => {
+
+            if (!audio.duration) return;
+
+            const width =
+                progressContainer.clientWidth;
+
+            const clickPosition =
+                event.offsetX;
+
+            audio.currentTime =
+                (clickPosition / width) * audio.duration;
+        });
+
+
+        document.getElementById("previous")
+            .addEventListener("click", () => {
+
+                currentTrack--;
+
+                if (currentTrack < 0) {
+                    currentTrack = tracks.length - 1;
+                }
+
+                loadTrack();
+
+                audio.play();
+
+                playButton.textContent = "❚❚";
+            });
+
+
+        document.getElementById("next")
+            .addEventListener("click", () => {
+
+                currentTrack++;
+
+                if (currentTrack >= tracks.length) {
+                    currentTrack = 0;
+                }
+
+                loadTrack();
+
+                audio.play();
+
+                playButton.textContent = "❚❚";
+            });
+
+
+        function formatTime(seconds) {
+
+            if (isNaN(seconds)) return "0:00";
+
+            const minutes =
+                Math.floor(seconds / 60);
+
+            const secs =
+                Math.floor(seconds % 60)
+                .toString()
+                .padStart(2, "0");
+
+            return minutes + ":" + secs;
+        }
+
+
+        loadTrack();
+
     </script>
 
 </body>
