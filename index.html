@@ -42,11 +42,35 @@
         <h1>🎧 Pour toi</h1>
         <p>Une petite playlist rien que pour toi 💗</p>
 
-        <audio controls>
-            <source src="playlist.mp3" type="audio/mpeg">
-            Ton navigateur ne peut pas lire cet audio.
+        <audio id="player" controls>
+            <source src="plA-01.mp3" type="audio/mpeg">
         </audio>
     </div>
+
+    <script>
+        const tracks = [
+            "plA-01.mp3",
+            "plB-01.mp3",
+            "plA-02.mp3",
+            "plB-02.mp3",
+            "plA-03.mp3",
+            "plB-03.mp3",
+            "plA-04.mp3",
+            "plB-04.mp3"
+        ];
+
+        let current = 0;
+        const player = document.getElementById("player");
+
+        player.addEventListener("ended", () => {
+            current++;
+
+            if (current < tracks.length) {
+                player.src = tracks[current];
+                player.play();
+            }
+        });
+    </script>
 
 </body>
 </html>
