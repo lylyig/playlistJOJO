@@ -7,6 +7,7 @@
     <title>Pour tes 18 ans ❤️</title>
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -14,176 +15,263 @@
         body {
             margin: 0;
             min-height: 100vh;
+
             font-family: Georgia, "Times New Roman", serif;
 
             background:
-                radial-gradient(circle at 20% 20%, rgba(100, 125, 105, 0.18), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(100, 125, 105, 0.14), transparent 30%),
-                #686b68;
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(91, 112, 96, 0.16),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(91, 112, 96, 0.12),
+                    transparent 30%
+                ),
+                #555957;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            padding: 25px;
+            padding: 24px;
+
             color: #30332f;
         }
+
+
+        /* ───────── CARTE PRINCIPALE ───────── */
 
         .card {
             width: 100%;
             max-width: 520px;
 
-            background: #f1ede3;
+            background: #e9e6dd;
 
-            padding: 55px 45px;
+            padding: 48px 42px;
 
             border-radius: 28px;
 
             box-shadow:
-                0 25px 60px rgba(0, 0, 0, 0.22),
-                0 4px 15px rgba(0, 0, 0, 0.08);
+                0 25px 60px rgba(0, 0, 0, 0.25),
+                0 5px 18px rgba(0, 0, 0, 0.10);
 
             text-align: center;
 
             position: relative;
+
             overflow: hidden;
+
+            animation: appear 0.8s ease;
         }
 
-        /* Petite décoration verte */
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* Décorations discrètes */
 
         .card::before {
+
             content: "";
+
             position: absolute;
 
-            width: 180px;
-            height: 180px;
+            width: 190px;
+            height: 190px;
 
-            background: rgba(83, 110, 85, 0.10);
+            background: rgba(83, 110, 85, 0.09);
 
             border-radius: 50%;
 
-            top: -90px;
-            right: -70px;
+            top: -100px;
+            right: -75px;
         }
+
 
         .card::after {
+
             content: "";
+
             position: absolute;
 
-            width: 130px;
-            height: 130px;
+            width: 150px;
+            height: 150px;
 
-            background: rgba(83, 110, 85, 0.08);
+            background: rgba(83, 110, 85, 0.07);
 
             border-radius: 50%;
 
-            bottom: -70px;
-            left: -50px;
+            bottom: -85px;
+            left: -60px;
         }
 
-        .small-title {
-            font-size: 14px;
-            letter-spacing: 3px;
+
+        /* ───────── TEXTE ───────── */
+
+        .intro {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            letter-spacing: 2.5px;
+
             text-transform: uppercase;
 
             color: #607361;
 
-            margin-bottom: 18px;
+            margin-bottom: 17px;
         }
 
+
         h1 {
-            font-size: 38px;
-            font-weight: normal;
 
             margin: 0;
+
+            font-size: 39px;
+
+            font-weight: normal;
+
+            line-height: 1.15;
 
             color: #30332f;
         }
 
-        .subtitle {
-            font-size: 18px;
-            line-height: 1.6;
-
-            color: #656861;
-
-            margin-top: 15px;
-            margin-bottom: 40px;
-        }
 
         .heart {
-            color: #607b62;
+
+            color: #d73535;
         }
 
-        /* Lecteur */
+
+        .subtitle {
+
+            margin-top: 16px;
+            margin-bottom: 38px;
+
+            font-size: 18px;
+
+            line-height: 1.55;
+
+            color: #666963;
+        }
+
+
+        /* ───────── LECTEUR ───────── */
 
         .player {
-            background: #e7e1d4;
+
+            background: #dedbd2;
 
             border-radius: 22px;
 
-            padding: 28px 25px;
+            padding: 27px 24px 24px;
 
             box-shadow:
-                inset 0 1px 0 rgba(255,255,255,0.6);
+                inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+            position: relative;
+
+            z-index: 2;
         }
+
 
         .track-number {
+
             font-family: Arial, sans-serif;
 
-            font-size: 12px;
-            letter-spacing: 2px;
+            font-size: 11px;
 
-            color: #738273;
+            letter-spacing: 2.5px;
 
-            margin-bottom: 12px;
+            color: #718073;
+
+            margin-bottom: 11px;
         }
+
 
         .track-title {
+
             font-size: 19px;
 
-            margin-bottom: 25px;
-
             color: #343733;
+
+            margin-bottom: 23px;
         }
 
+
+        /* ───────── BOUTON PLAY ───────── */
+
         .play-button {
+
             width: 68px;
             height: 68px;
 
             border: none;
+
             border-radius: 50%;
 
             background: #58745c;
+
             color: white;
 
-            font-size: 24px;
+            font-size: 22px;
 
             cursor: pointer;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
-            margin: 0 auto 25px;
+            margin: 0 auto 24px;
 
             box-shadow:
-                0 8px 18px rgba(65, 90, 68, 0.28);
+                0 8px 18px rgba(65, 90, 68, 0.30);
 
-            transition: transform 0.2s ease,
-                        background 0.2s ease;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
         }
 
+
         .play-button:hover {
+
             transform: scale(1.06);
+
             background: #4d6951;
         }
 
+
+        .play-button:active {
+
+            transform: scale(0.96);
+        }
+
+
+        /* ───────── BARRE DE PROGRESSION ───────── */
+
         .progress-container {
+
             width: 100%;
 
-            height: 6px;
+            height: 5px;
 
-            background: #cfc9bd;
+            background: #c8c5bc;
 
             border-radius: 10px;
 
@@ -192,7 +280,9 @@
             overflow: hidden;
         }
 
+
         .progress {
+
             height: 100%;
 
             width: 0%;
@@ -200,10 +290,17 @@
             background: #58745c;
 
             border-radius: 10px;
+
+            transition: width 0.1s linear;
         }
 
+
+        /* ───────── TEMPS ───────── */
+
         .time {
+
             display: flex;
+
             justify-content: space-between;
 
             margin-top: 8px;
@@ -212,175 +309,303 @@
 
             font-size: 11px;
 
-            color: #777b74;
+            color: #777a74;
         }
+
+
+        /* ───────── BOUTONS PREVIOUS / NEXT ───────── */
 
         .controls {
+
             display: flex;
+
             justify-content: center;
+
             gap: 18px;
 
-            margin-top: 22px;
+            margin-top: 21px;
         }
 
+
         .control-button {
-            width: 42px;
-            height: 42px;
+
+            width: 40px;
+            height: 40px;
 
             border: none;
 
             border-radius: 50%;
 
-            background: #d8d2c5;
+            background: #cecac0;
 
-            color: #526654;
+            color: #536b57;
 
             cursor: pointer;
 
-            font-size: 16px;
+            font-size: 21px;
 
-            transition: transform 0.2s ease;
+            line-height: 1;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
         }
+
 
         .control-button:hover {
+
             transform: scale(1.08);
+
+            background: #c4c0b6;
         }
 
+
+        /* ───────── TEXTE DU BAS ───────── */
+
         .bottom-text {
-            margin-top: 30px;
+
+            margin-top: 27px;
 
             font-size: 14px;
 
-            color: #7b7d77;
+            color: #777a74;
 
             font-style: italic;
         }
 
+
+        /* ───────── MOBILE ───────── */
+
         @media (max-width: 600px) {
 
             body {
-                padding: 16px;
+
+                padding: 15px;
             }
 
+
             .card {
-                padding: 42px 22px;
+
+                padding: 40px 20px;
+
                 border-radius: 24px;
             }
 
+
+            .intro {
+
+                font-size: 11px;
+
+                letter-spacing: 2px;
+            }
+
+
             h1 {
+
                 font-size: 31px;
             }
 
+
             .subtitle {
+
                 font-size: 16px;
+
+                margin-bottom: 32px;
             }
 
+
             .player {
-                padding: 25px 18px;
+
+                padding: 24px 17px 21px;
             }
+
+
+            .track-title {
+
+                font-size: 18px;
+            }
+
         }
+
     </style>
 </head>
 
+
 <body>
+
 
     <div class="card">
 
-        <div class="small-title">
-            Une petite attention
+
+        <!-- TEXTE D'INTRODUCTION -->
+
+        <div class="intro">
+            OUUUUUH t’es gâté...
         </div>
+
 
         <h1>
-            Pour tes 18 ans <span class="heart">♥</span>
+            Pour tes 18 ans <span class="heart">❤️</span>
         </h1>
 
+
         <div class="subtitle">
-            une playlist spécialement créée<br>
-            pour notre Jojo
+
+            Une playlist spécialement créée<br>
+
+            pour toi.
+
         </div>
 
 
+        <!-- LECTEUR -->
+
         <div class="player">
+
 
             <div class="track-number" id="trackNumber">
                 01 / 08
             </div>
 
-            <div class="track-title" id="trackTitle">
+
+            <div class="track-title">
                 Playlist pour Jojo
             </div>
 
-            <button class="play-button" id="playButton">
+
+            <button
+                class="play-button"
+                id="playButton"
+                aria-label="Lecture"
+            >
                 ▶
             </button>
 
-            <div class="progress-container" id="progressContainer">
-                <div class="progress" id="progress"></div>
+
+            <div
+                class="progress-container"
+                id="progressContainer"
+            >
+
+                <div
+                    class="progress"
+                    id="progress"
+                ></div>
+
             </div>
 
+
             <div class="time">
-                <span id="currentTime">0:00</span>
-                <span id="duration">0:00</span>
+
+                <span id="currentTime">
+                    0:00
+                </span>
+
+                <span id="duration">
+                    0:00
+                </span>
+
             </div>
+
 
             <div class="controls">
 
-                <button class="control-button" id="previous">
+
+                <button
+                    class="control-button"
+                    id="previous"
+                    aria-label="Piste précédente"
+                >
                     ‹
                 </button>
 
-                <button class="control-button" id="next">
+
+                <button
+                    class="control-button"
+                    id="next"
+                    aria-label="Piste suivante"
+                >
                     ›
                 </button>
 
+
             </div>
 
+
         </div>
 
+
         <div class="bottom-text">
-            Profite bien de ta playlist 🌿
+            Profite bien mv 🌟
         </div>
+
 
     </div>
 
+
+    <!-- AUDIO -->
 
     <audio id="audio"></audio>
 
 
     <script>
 
+
+        /* ───────── TES 8 FICHIERS AUDIO ───────── */
+
         const tracks = [
+
             "plA-01.mp3",
+
             "plB-01.mp3",
+
             "plA-02.mp3",
+
             "plB-02.mp3",
+
             "plA-03.mp3",
+
             "plB-03.mp3",
+
             "plA-04.mp3",
+
             "plB-04.mp3"
+
         ];
 
 
         let currentTrack = 0;
 
-        const audio = document.getElementById("audio");
 
-        const playButton = document.getElementById("playButton");
+        const audio =
+            document.getElementById("audio");
 
-        const progress = document.getElementById("progress");
+
+        const playButton =
+            document.getElementById("playButton");
+
+
+        const progress =
+            document.getElementById("progress");
+
 
         const progressContainer =
             document.getElementById("progressContainer");
 
+
         const currentTime =
             document.getElementById("currentTime");
+
 
         const duration =
             document.getElementById("duration");
 
+
         const trackNumber =
             document.getElementById("trackNumber");
 
+
+        /* ───────── CHARGER UNE PISTE ───────── */
 
         function loadTrack() {
 
@@ -391,10 +616,13 @@
                 + " / 08";
 
             audio.load();
+
         }
 
 
-        function togglePlay() {
+        /* ───────── PLAY / PAUSE ───────── */
+
+        playButton.addEventListener("click", () => {
 
             if (audio.paused) {
 
@@ -407,43 +635,57 @@
                 audio.pause();
 
                 playButton.textContent = "▶";
+
             }
-        }
+
+        });
 
 
-        playButton.addEventListener("click", togglePlay);
-
+        /* ───────── PROGRESSION ───────── */
 
         audio.addEventListener("timeupdate", () => {
 
             if (!audio.duration) return;
 
+
             const percent =
                 (audio.currentTime / audio.duration) * 100;
 
-            progress.style.width = percent + "%";
+
+            progress.style.width =
+                percent + "%";
+
 
             currentTime.textContent =
                 formatTime(audio.currentTime);
+
         });
 
+
+        /* ───────── DURÉE ───────── */
 
         audio.addEventListener("loadedmetadata", () => {
 
             duration.textContent =
                 formatTime(audio.duration);
+
         });
 
+
+        /* ───────── FIN D'UNE PISTE ───────── */
 
         audio.addEventListener("ended", () => {
 
             currentTrack++;
+
 
             if (currentTrack < tracks.length) {
 
                 loadTrack();
 
                 audio.play();
+
+                playButton.textContent = "❚❚";
 
             } else {
 
@@ -452,78 +694,121 @@
                 loadTrack();
 
                 playButton.textContent = "▶";
+
             }
+
         });
 
 
-        progressContainer.addEventListener("click", (event) => {
+        /* ───────── CLIC SUR LA BARRE ───────── */
 
-            if (!audio.duration) return;
+        progressContainer.addEventListener(
+            "click",
+            (event) => {
 
-            const width =
-                progressContainer.clientWidth;
-
-            const clickPosition =
-                event.offsetX;
-
-            audio.currentTime =
-                (clickPosition / width) * audio.duration;
-        });
+                if (!audio.duration) return;
 
 
-        document.getElementById("previous")
+                const width =
+                    progressContainer.clientWidth;
+
+
+                const clickPosition =
+                    event.offsetX;
+
+
+                audio.currentTime =
+                    (clickPosition / width)
+                    * audio.duration;
+
+            }
+        );
+
+
+        /* ───────── PISTE PRÉCÉDENTE ───────── */
+
+        document
+            .getElementById("previous")
             .addEventListener("click", () => {
 
                 currentTrack--;
 
+
                 if (currentTrack < 0) {
-                    currentTrack = tracks.length - 1;
+
+                    currentTrack =
+                        tracks.length - 1;
+
                 }
+
 
                 loadTrack();
 
                 audio.play();
 
                 playButton.textContent = "❚❚";
+
             });
 
 
-        document.getElementById("next")
+        /* ───────── PISTE SUIVANTE ───────── */
+
+        document
+            .getElementById("next")
             .addEventListener("click", () => {
 
                 currentTrack++;
 
+
                 if (currentTrack >= tracks.length) {
+
                     currentTrack = 0;
+
                 }
+
 
                 loadTrack();
 
                 audio.play();
 
                 playButton.textContent = "❚❚";
+
             });
 
 
+        /* ───────── FORMAT DU TEMPS ───────── */
+
         function formatTime(seconds) {
 
-            if (isNaN(seconds)) return "0:00";
+            if (isNaN(seconds)) {
+
+                return "0:00";
+
+            }
+
 
             const minutes =
                 Math.floor(seconds / 60);
+
 
             const secs =
                 Math.floor(seconds % 60)
                 .toString()
                 .padStart(2, "0");
 
+
             return minutes + ":" + secs;
+
         }
 
 
+        /* ───────── INITIALISATION ───────── */
+
         loadTrack();
 
+
     </script>
+
 
 </body>
 </html>
